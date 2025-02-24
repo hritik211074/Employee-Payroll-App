@@ -1,6 +1,8 @@
 package com.bridgelabz.spring_employee_payroll__app.section1_uc02.controller;
-import com.bridgelabz.spring_employee_payroll_app.section1_uc02.model.Employee;
-import com.bridgelabz.spring_employee_payroll_app.section1_uc02.service.EmployeeService;
+
+import com.bridgelabz.spring_employee_payroll__app.section1_uc02.model.Employee;
+import com.bridgelabz.spring_employee_payroll__app.section1_uc02.service.EmployeeService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
