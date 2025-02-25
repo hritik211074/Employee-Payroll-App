@@ -2,32 +2,22 @@ package com.bridgelabz.spring_employee_payroll__app.section1_uc01.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 
 @Entity
 public class Employee {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
     private String name;
     private String department;
     private double salary;
 
-    // Constructors, getters and setters
-    public Employee() {}
-
-    public Employee(String name, String department, double salary) {
-        this.name = name;
-        this.department = department;
-        this.salary = salary;
-    }
-
-    public Long getId() {
+    // Getters and setters
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

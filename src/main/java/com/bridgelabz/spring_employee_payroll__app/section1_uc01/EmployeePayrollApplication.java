@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class EmployeePayrollApplication {
 
     public static void main(String[] args) {
+        // Launches the Spring Boot application
         SpringApplication.run(EmployeePayrollApplication.class, args);
     }
 }

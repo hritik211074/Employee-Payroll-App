@@ -1,36 +1,36 @@
 package com.bridgelabz.spring_employee_payroll__app.section1_uc01.service;
 
-
-import com.bridgelabz.spring_employee_payroll__app.section1_uc01.model.Employee;
-import com.bridgelabz.spring_employee_payroll__app.section1_uc01.repository.EmployeeRepository;
+import com.bridgelabz.spring_employee_payroll__app.section1_uc02.model.Employee;
+import com.bridgelabz.spring_employee_payroll__app.section1_uc02.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
 @Service
 public class EmployeeService {
 
-    private final EmployeeRepository employeeRepository;
-
     @Autowired
-    public EmployeeService(EmployeeRepository employeeRepository) {
-        this.employeeRepository = employeeRepository;
-    }
+    private EmployeeRepository employeeRepository;
 
-    public List<Employee> getAllEmployees() {
-        return employeeRepository.findAll();
-    }
-
-    public Optional<Employee> getEmployeeById(Long id) {
-        return employeeRepository.findById(id);
-    }
-
+    // Create or Update Employee
     public Employee saveEmployee(Employee employee) {
         return employeeRepository.save(employee);
     }
 
-    public void deleteEmployee(Long id) {
+    // Get all employees
+    public List<Employee> getAllEmployees() {
+        return employeeRepository.findAll();
+    }
+
+    // Get employee by ID
+    public Optional<Employee> getEmployeeById(long id) {
+        return employeeRepository.findById(id);
+    }
+
+    // Delete employee by ID
+    public void deleteEmployee(long id) {
         employeeRepository.deleteById(id);
     }
 }
