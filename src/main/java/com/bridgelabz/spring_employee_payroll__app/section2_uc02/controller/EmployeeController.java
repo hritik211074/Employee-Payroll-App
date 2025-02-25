@@ -1,36 +1,37 @@
 package com.bridgelabz.spring_employee_payroll__app.section2_uc02.controller;
 
-import com.bridgelabz.spring_employee_payroll__app.section2_uc02.dto.EmployeeDTO;
+import com.bridgelabz.spring_employee_payroll__app.section2_uc02.model.Employee;
 import com.bridgelabz.spring_employee_payroll__app.section2_uc02.service.EmployeeService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/employees")
 public class EmployeeController {
 
-    // Dependency Injection of the EmployeeService
     @Autowired
     private EmployeeService employeeService;
 
     // Create or Update an Employee (POST or PUT)
     @PostMapping
-    public EmployeeDTO createOrUpdateEmployee(@RequestBody EmployeeDTO employeeDTO) {
-        return employeeService.createOrUpdateEmployee(employeeDTO);
+    public Employee createOrUpdateEmployee(@RequestBody Employee employee) {
+        return employeeService.saveEmployee(employee);
     }
 
     // Get All Employees (GET)
     @GetMapping
-    public List<EmployeeDTO> getAllEmployees() {
+    public List<Employee> getAllEmployees() {
         return employeeService.getAllEmployees();
     }
 
     // Get Employee by ID (GET)
     @GetMapping("/{id}")
-    public EmployeeDTO getEmployeeById(@PathVariable long id) {
+    public Optional<Employee> getEmployeeById(@PathVariable long id) {
         return employeeService.getEmployeeById(id);
     }
 
