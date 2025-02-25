@@ -1,8 +1,8 @@
 package com.bridgelabz.spring_employee_payroll__app.section2_uc01.service;
 
-import com.bridgelabz.spring_employee_payroll_app.section1_uc01.dto.EmployeeDTO;
-import com.bridgelabz.spring_employee_payroll_app.section1_uc01.model.Employee;
-import com.bridgelabz.spring_employee_payroll_app.section1_uc01.repository.EmployeeRepository;
+import com.bridgelabz.spring_employee_payroll__app.section2_uc01.dto.EmployeeDTO;
+import com.bridgelabz.spring_employee_payroll__app.section2_uc01.model.Employee;
+import com.bridgelabz.spring_employee_payroll__app.section2_uc01.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +31,7 @@ public class EmployeeService {
 
     // Get all Employees and convert to DTO
     public List<EmployeeDTO> getAllEmployees() {
-        List<Employee> employees = employeeRepository.findAll();
+        List<com.bridgelabz.spring_employee_payroll__app.section1_uc02.model.Employee> employees = employeeRepository.findAll();
         return employees.stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
