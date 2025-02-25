@@ -3,10 +3,9 @@ package com.bridgelabz.spring_employee_payroll__app.section2_uc03.dto;
 public class EmployeeDTO {
 
     private String name;
-    private String phoneNumber;
-    private String email;
+    private double salary;
 
-    // Getters and Setters
+    // Getters and setters
     public String getName() {
         return name;
     }
@@ -15,19 +14,11 @@ public class EmployeeDTO {
         this.name = name;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public double getSalary() {
+        return salary;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setSalary(double salary) {
+        this.salary = salary;
     }
 }

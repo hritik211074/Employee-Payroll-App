@@ -1,7 +1,7 @@
 package com.bridgelabz.spring_employee_payroll__app.section2_uc03.service;
 
-import com.bridgelabz.spring_employee_payroll_app.section1_uc01.dto.EmployeeDTO;
-import com.bridgelabz.spring_employee_payroll_app.section1_uc01.model.Employee;
+import com.bridgelabz.spring_employee_payroll__app.section2_uc03.dto.EmployeeDTO;
+import com.bridgelabz.spring_employee_payroll__app.section2_uc03.model.Employee;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
