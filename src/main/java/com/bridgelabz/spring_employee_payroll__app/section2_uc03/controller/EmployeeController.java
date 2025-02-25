@@ -1,7 +1,7 @@
 package com.bridgelabz.spring_employee_payroll__app.section2_uc03.controller;
 
 import com.bridgelabz.spring_employee_payroll__app.section2_uc03.dto.EmployeeDTO;
-import com.bridgelabz.spring_employee_payroll__app.section1_uc01.service.EmployeeService;
+import com.bridgelabz.spring_employee_payroll__app.section2_uc03.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -37,7 +37,7 @@ public class EmployeeController {
     // Delete Employee (DELETE)
     @DeleteMapping("/{name}")
     public HttpStatus deleteEmployee(@PathVariable String name) {
-        employeeService.deleteEmployee(name);
+        employeeService.deleteEmployee(Long.valueOf(name));
         return HttpStatus.NO_CONTENT;
     }
 }

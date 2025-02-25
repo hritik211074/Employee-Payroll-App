@@ -1,10 +1,11 @@
-package com.bridgelabz.spring_employee_payroll__app.section2_uc03.service;
+package com.bridgelabz.spring_employee_payroll__app.section2_uc03.service;// Correct package for EmployeeService
 
 import com.bridgelabz.spring_employee_payroll__app.section2_uc03.dto.EmployeeDTO;
 import com.bridgelabz.spring_employee_payroll__app.section2_uc03.model.Employee;
+import com.bridgelabz.spring_employee_payroll__app.section2_uc03.repository.EmployeeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -12,57 +13,43 @@ import java.util.stream.Collectors;
 @Service
 public class EmployeeService {
 
-    // In-memory storage (List) for employee data
-    private List<Employee> employeeList = new ArrayList<>();
+    @Autowired
+    private EmployeeRepository employeeRepository;
 
-    // Create or Update an Employee
     public EmployeeDTO createOrUpdateEmployee(EmployeeDTO employeeDTO) {
-        // Convert DTO to Model (Entity)
         Employee employee = new Employee();
         employee.setName(employeeDTO.getName());
         employee.setSalary(employeeDTO.getSalary());
 
-        // Simulate saving by adding/updating the employee in the list
-        Optional<Employee> existingEmployee = employeeList.stream()
-                .filter(emp -> emp.getName().equals(employee.getName()))
-                .findFirst();
+        Employee savedEmployee = employeeRepository.save(employee);
 
-        if (existingEmployee.isPresent()) {
-            existingEmployee.get().setSalary(employee.getSalary()); // Update salary
-        } else {
-            employeeList.add(employee); // Add new employee
-        }
-
-        // Return EmployeeDTO
-        return convertToDTO(employee);
+        return convertToDTO(savedEmployee);
     }
 
-    // Convert Employee model to EmployeeDTO
     private EmployeeDTO convertToDTO(Employee employee) {
         EmployeeDTO employeeDTO = new EmployeeDTO();
-        employeeDTO.setName(employee.getName());
+        employeeDTO.setName(employee.getEmployeeByName());
         employeeDTO.setSalary(employee.getSalary());
         return employeeDTO;
     }
 
-    // Get all Employees and convert to DTO
     public List<EmployeeDTO> getAllEmployees() {
-        return employeeList.stream()
+        List<Employee> employees = employeeRepository.findAll();
+        return employees.stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
     }
 
-    // Get Employee by Name and convert to DTO
-    public EmployeeDTO getEmployeeByName(String name) {
-        Optional<Employee> employee = employeeList.stream()
-                .filter(emp -> emp.getName().equals(name))
-                .findFirst();
+    public EmployeeDTO getEmployeeById(long id) {
+        Optional<Employee> employee = employeeRepository.findById(id);
         return employee.map(this::convertToDTO).orElse(null);
     }
 
-    // Delete Employee by Name (simulating removal from the in-memory list)
-    public void deleteEmployee(String name) {
-        employeeList.removeIf(employee -> employee.getName().equals(name));
+    public void deleteEmployee(long id) {
+        employeeRepository.deleteById(id);
+    }
+
+    public EmployeeDTO getEmployeeByName(String name) {
+
     }
 }
-
