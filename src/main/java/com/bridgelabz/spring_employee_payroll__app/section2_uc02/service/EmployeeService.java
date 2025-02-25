@@ -1,8 +1,8 @@
 package com.bridgelabz.spring_employee_payroll__app.section2_uc02.service;
 
-import com.bridgelabz.spring_employee_payroll_app.section1_uc02.dto.EmployeeDTO;
-import com.bridgelabz.spring_employee_payroll_app.section1_uc02.model.Employee;
-import com.bridgelabz.spring_employee_payroll_app.section1_uc02.repository.EmployeeRepository;
+import com.bridgelabz.spring_employee_payroll__app.section2_uc02.dto.EmployeeDTO;
+import com.bridgelabz.spring_employee_payroll__app.section2_uc02.model.Employee;
+import com.bridgelabz.spring_employee_payroll__app.section2_uc02.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
